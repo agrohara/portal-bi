@@ -2,21 +2,63 @@
 <html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
-<title>Vendas – Agro Hara</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Painel de Vendas – Agro Hara</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
 <style>
-body{margin:0;font-family:Segoe UI;background:#f9fafb}
-.header{padding:14px 20px;background:white;border-bottom:1px solid #ddd;font-weight:600}
-iframe{width:100%;height:calc(100vh - 60px);border:none}
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#f9fafb;
+  }
+
+  /* 🔘 CONTAINER DOS BOTÕES */
+  .panel-actions{
+    position:fixed;
+    top:10px;
+    left:10px;
+    right:10px;
+    display:flex;
+    justify-content:space-between;
+    z-index:10000;
+  }
+
+  /* 🎛️ BOTÕES */
+  .btn{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    background:#16a34a;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,0.18);
+    transition:.15s;
+  }
+  .btn:hover{ background:#15803d; }
+
+  /* 📊 IFRAME DO POWER BI */
+  iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+  }
 </style>
 </head>
+
 <body>
 
-<div class="header">📊 Painel de Vendas – Agro Hara</div>
+<!-- 🚀 BOTÕES DE AÇÃO -->
+<div class="panel-actions">
+  <button class="btn" onclick="window.location.href='index.html'">⬅️ Voltar ao Portal</button>
+  <button class="btn" onclick="document.querySelector('iframe').requestFullscreen();">🖥️ Tela Cheia</button>
+</div>
 
+<!-- 📌 IFRAME DO POWER BI (link já configurado) -->
 <iframe 
-src="https://app.powerbi.com/reportEmbed?reportId=ad0d22ba-e701-4ede-a52b-39d33d10e19f&autoAuth=true&filterPaneEnabled=false&navContentPaneEnabled=true"
-allowFullScreen="true"></iframe>
+  src="https://app.powerbi.com/reportEmbed?reportId=ad0d22ba-e701-4ede-a52b-39d33d10e19f&autoAuth=true&filterPaneEnabled=false&navContentPaneEnabled=true"
+  allowFullScreen="true">
+</iframe>
 
 </body>
 </html>
