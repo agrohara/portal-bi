@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8" />
-  <title>Hub de Painéis - Power BI</title>
+  <title>Painéis Corporativos – Agro Hara</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
@@ -21,7 +21,7 @@
       --green:#16a34a;
     }
 
-    /* FUNDO CLEAN COM IMAGEM AGRÍCOLA */
+    /* FUNDO COM IMAGEM AGRÍCOLA (mantido) */
     body{
       color:var(--text);
       min-height:100vh;
@@ -38,7 +38,7 @@
           rgba(255,255,255,0.94),
           rgba(255,255,255,0.94)
         ),
-        url("bg-soja.png"); /* ← CORRIGIDO AQUI */
+        url("bg-soja.png");
       background-size:cover;
       background-position:center;
       z-index:0;
@@ -49,7 +49,7 @@
       z-index:1;
     }
 
-    /* HEADER */
+    /* HEADER (mantendo logo) */
     header{
       max-width:1200px;
       margin:0 auto;
@@ -80,29 +80,53 @@
       max-width:900px;
     }
 
-    /* GRID */
+    /* CONTEÚDO PRINCIPAL */
     main{
       max-width:1200px;
       margin:0 auto;
       padding:0 18px 32px;
     }
 
-    .grid{
+    .section{
+      margin-top:22px;
+    }
+
+    .section-label{
+      font-size:14px;
+      font-weight:600;
+      color:#111827;
+      display:flex;
+      align-items:center;
+      gap:8px;
+      margin-bottom:10px;
+    }
+
+    .section-label span.icon{
+      font-size:18px;
+    }
+
+    .cards{
       display:grid;
       grid-template-columns:repeat(3,1fr);
-      gap:16px;
-      margin-top:20px;
+      gap:14px;
     }
 
     .card{
       background:var(--card);
       border:1px solid var(--border);
       border-radius:14px;
-      padding:16px;
+      padding:14px 16px 12px;
       display:flex;
       flex-direction:column;
       gap:8px;
-      min-height:150px;
+      box-shadow:0 2px 6px rgba(15,23,42,0.03);
+      transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    }
+
+    .card:hover{
+      transform:translateY(-1px);
+      border-color:#bbf7d0;
+      box-shadow:0 6px 16px rgba(15,23,42,0.06);
     }
 
     .title{
@@ -116,19 +140,48 @@
       line-height:1.4;
     }
 
-    .btnrow{
-      margin-top:auto;
+    .card-footer{
+      margin-top:4px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:8px;
     }
 
-    a.btn{
-      display:inline-block;
-      padding:9px 16px;
+    .tag{
+      font-size:11px;
+      padding:4px 10px;
       border-radius:999px;
+      text-transform:uppercase;
+      letter-spacing:.06em;
+      background:#ecfdf3;
+      color:#15803d;
+      white-space:nowrap;
+    }
+    .tag.vet{
+      background:#eef2ff;
+      color:#4338ca;
+    }
+    .tag.fin{
+      background:#fff7ed;
+      color:#c2410c;
+    }
+    .tag.log{
+      background:#e0f2fe;
+      color:#0369a1;
+    }
+
+    .card-link{
       font-size:12px;
-      font-weight:700;
-      color:#ffffff;
-      background:var(--green);
+      font-weight:600;
+      color:#15803d;
       text-decoration:none;
+      white-space:nowrap;
+    }
+
+    .card-link span{
+      margin-left:4px;
+      font-size:11px;
     }
 
     footer{
@@ -140,11 +193,11 @@
     }
 
     @media (max-width:1000px){
-      .grid{grid-template-columns:repeat(2,1fr)}
+      .cards{grid-template-columns:repeat(2,1fr)}
     }
 
     @media (max-width:640px){
-      .grid{grid-template-columns:1fr}
+      .cards{grid-template-columns:1fr}
       .brand-logo{height:30px}
     }
   </style>
@@ -156,102 +209,168 @@
   <div class="brand">
     <img class="brand-logo" src="logo-hara.png" alt="Agro Hara">
   </div>
-  <h1>Hub de Painéis Corporativos</h1>
+  <h1>Hub de Painéis Corporativos – Agro Hara</h1>
   <p>Indicadores estratégicos para apoio à tomada de decisão no agronegócio.</p>
 </header>
 
 <main>
-  <div class="grid">
 
-    <div class="card">
-      <div class="title">PAINEL GRUPO HARA (VENDAS)</div>
-      <div class="desc">Vendas, faturamento, margens e desempenho comercial.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/ad0d22ba-e701-4ede-a52b-39d33d10e19f/6ba47188795ce6267086?experience=power-bi">
-          Abrir relatório
-        </a>
-      </div>
+  <!-- AGRÍCOLA -->
+  <section class="section">
+    <div class="section-label">
+      <span class="icon">🌾</span>
+      Agrícola
     </div>
+    <div class="cards">
 
-    <div class="card">
-      <div class="title">PAINEL MARGEM AGRÍCOLA</div>
-      <div class="desc">Margem agrícola, performance por produto e rentabilidade.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/2f97e0b1-1813-4737-9518-570dc20f0e5e/95a564a92eeddb7c7e79?experience=power-bi">
-          Abrir relatório
-        </a>
+      <div class="card">
+        <div class="title">Vendas (Agrícola e Veterinária)</div>
+        <div class="desc">
+          Acompanhamento de vendas, faturamento e metas de sell-out das verticais Agrícola e Veterinária.
+        </div>
+        <div class="card-footer">
+          <span class="tag">Agrícola</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/ad0d22ba-e701-4ede-a52b-39d33d10e19f/6ba47188795ce6267086?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL VETERINÁRIA MSD</div>
-      <div class="desc">Indicadores comerciais e acompanhamento da vertical MSD.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/c6c8d876-12f6-41b4-ae8b-14bc7fa56ccf/3a45406eb71603d49712?experience=power-bi">
-          Abrir relatório
-        </a>
+      <div class="card">
+        <div class="title">Margem Comercial – Vertical Agrícola</div>
+        <div class="desc">
+          Apuração de margem por filial, grupo, subgrupo, fornecedor e cliente.
+        </div>
+        <div class="card-footer">
+          <span class="tag">Agrícola</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/2f97e0b1-1813-4737-9518-570dc20f0e5e/95a564a92eeddb7c7e79?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL VETERINÁRIA ELANCO</div>
-      <div class="desc">Indicadores comerciais e acompanhamento da vertical Elanco.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://chatgpt.com/g/g-p-694e962fef4c8191ba8649411bacf599-agrupamento-pbi/c/694e951a-4de8-8330-888c-97cff9168268">
-          Abrir relatório
-        </a>
+      <div class="card">
+        <div class="title">Operações Barter</div>
+        <div class="desc">
+          Acompanhamento de contratos, volumes e resultados financeiros das operações barter.
+        </div>
+        <div class="card-footer">
+          <span class="tag">Agrícola</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/68cbe3af-ed43-4451-96b0-77427497b339/c9731144a07da00e2b3a?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL FORNECEDORES</div>
-      <div class="desc">Compras, negociações e análise de fornecedores.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/f004efe4-a1d8-4262-903f-423186b94e61/fe61bff41b154edc2466?experience=power-bi">
-          Abrir relatório
-        </a>
+    </div>
+  </section>
+
+  <!-- VETERINÁRIA -->
+  <section class="section">
+    <div class="section-label">
+      <span class="icon">🐄</span>
+      Veterinária
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="title">Veterinária MSD – Vendas e Margem</div>
+        <div class="desc">
+          Análise de vendas, margem e apuração de metas de sell-in da MSD.
+        </div>
+        <div class="card-footer">
+          <span class="tag vet">Veterinária</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/c6c8d876-12f6-41b4-ae8b-14bc7fa56ccf/3a45406eb71603d49712?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL INADIMPLÊNCIA</div>
-      <div class="desc">Aging, risco de crédito e controle de inadimplência.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/e42ad853-072d-4bdd-84be-e14b3b931f34/reports/ce6e59f6-33bb-4bbe-b334-d3af138c237d/ReportSection32453670953a2d209a6e?experience=power-bi">
-          Abrir relatório
-        </a>
+      <div class="card">
+        <div class="title">Veterinária Elanco – Vendas e Margem</div>
+        <div class="desc">
+          Análise de vendas, margem e apuração de metas de sell-in da Elanco.
+        </div>
+        <div class="card-footer">
+          <span class="tag vet">Veterinária</span>
+          <a class="card-link" target="_blank"
+             href="https://chatgpt.com/g/g-p-694e962fef4c8191ba8649411bacf599-agrupamento-pbi/c/694e951a-4de8-8330-888c-97cff9168268">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL LOGÍSTICA</div>
-      <div class="desc">Fretes, prazos, eficiência e performance logística.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/35622400-5ad3-45e1-b08a-b546ac6cbe1d/421bdb9f9b678a65b38a?experience=power-bi">
-          Abrir relatório
-        </a>
+    </div>
+  </section>
+
+  <!-- FINANCEIRO & FORNECEDORES -->
+  <section class="section">
+    <div class="section-label">
+      <span class="icon">💼</span>
+      Financeiro &amp; Fornecedores
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="title">Fornecedores – One Page</div>
+        <div class="desc">
+          Apuração de compras e acompanhamento de campanhas de rebate.
+        </div>
+        <div class="card-footer">
+          <span class="tag fin">Financeiro</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/f004efe4-a1d8-4262-903f-423186b94e61/fe61bff41b154edc2466?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-    <div class="card">
-      <div class="title">PAINEL BARTER</div>
-      <div class="desc">Operações barter, contratos e resultados financeiros.</div>
-      <div class="btnrow">
-        <a class="btn" target="_blank"
-           href="https://app.powerbi.com/groups/me/reports/68cbe3af-ed43-4451-96b0-77427497b339/c9731144a07da00e2b3a?experience=power-bi">
-          Abrir relatório
-        </a>
+      <div class="card">
+        <div class="title">Duplicatas em Aberto</div>
+        <div class="desc">
+          Painel de controle de duplicatas em aberto e inadimplência.
+        </div>
+        <div class="card-footer">
+          <span class="tag fin">Financeiro</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/e42ad853-072d-4bdd-84be-e14b3b931f34/reports/ce6e59f6-33bb-4bbe-b334-d3af138c237d/ReportSection32453670953a2d209a6e?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
       </div>
-    </div>
 
-  </div>
+    </div>
+  </section>
+
+  <!-- LOGÍSTICA & OPERAÇÕES -->
+  <section class="section">
+    <div class="section-label">
+      <span class="icon">🚚</span>
+      Logística &amp; Operações
+    </div>
+    <div class="cards">
+
+      <div class="card">
+        <div class="title">Custos Logísticos</div>
+        <div class="desc">
+          Controle e análise de custos de frete.
+        </div>
+        <div class="card-footer">
+          <span class="tag log">Operações</span>
+          <a class="card-link" target="_blank"
+             href="https://app.powerbi.com/groups/me/reports/35622400-5ad3-45e1-b08a-b546ac6cbe1d/421bdb9f9b678a65b38a?experience=power-bi">
+            Abrir painel <span>↗</span>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
 </main>
 
 <footer>
