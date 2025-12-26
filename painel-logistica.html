@@ -1,13 +1,71 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-<head><meta charset="UTF-8"><title>Logística – Custos</title>
+<head>
+<meta charset="UTF-8">
+<title>Logística – Custos Operacionais</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style>body{margin:0;font-family:Segoe UI;background:#f9fafb}.header{padding:14px 20px;background:white;border-bottom:1px solid #ddd;font-weight:600}iframe{width:100%;height:calc(100vh - 60px);border:none}</style></head>
+
+<style>
+  body{
+    margin:0;
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    background:#f9fafb;
+  }
+
+  /* 🔘 CONTAINER DOS BOTÕES */
+  .panel-actions{
+    position:fixed;
+    top:10px;
+    left:10px;
+    right:10px;
+    display:flex;
+    justify-content:space-between;
+    z-index:10000;
+  }
+
+  /* 🎛 BOTÕES */
+  .btn{
+    padding:8px 14px;
+    border:none;
+    border-radius:8px;
+    background:#16a34a;
+    color:white;
+    font-weight:600;
+    cursor:pointer;
+    box-shadow:0 2px 6px rgba(0,0,0,0.18);
+    transition:.15s;
+  }
+  .btn:hover{ background:#15803d; }
+
+  /* 📊 IFRAME DO POWER BI */
+  iframe{
+    width:100%;
+    height:100vh;
+    border:none;
+  }
+</style>
+</head>
+
 <body>
 
-<div class="header">🚚 Custos Logísticos – Fretes e Operações</div>
+<!-- 🚀 AÇÕES -->
+<div class="panel-actions">
+  <button class="btn" onclick="window.location.href='index.html'">
+    ⬅️ Voltar ao Portal
+  </button>
 
-<iframe src="https://app.powerbi.com/reportEmbed?reportId=35622400-5ad3-45e1-b08a-b546ac6cbe1d&autoAuth=true&filterPaneEnabled=false&navContentPaneEnabled=true" allowFullScreen="true"></iframe>
+  <button class="btn" onclick="document.querySelector('iframe').requestFullscreen();">
+    🖥️ Tela Cheia
+  </button>
+</div>
+
+<!-- 🚚 PAINEL LOGÍSTICA -->
+<iframe 
+  src="https://app.powerbi.com/reportEmbed?reportId=35622400-5ad3-45e1-b08a-b546ac6cbe1d&autoAuth=true&filterPaneEnabled=false&navContentPaneEnabled=true"
+  allowFullScreen="true">
+</iframe>
 
 </body>
 </html>
+
+
