@@ -6,50 +6,79 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <style>
-    *{
-      box-sizing:border-box;
-      margin:0;
-      padding:0;
-      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif
+    *{box-sizing:border-box;margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif}
+
+    :root{
+      --bg:#f3f4f6;
+      --text:#111827;
+      --muted:#6b7280;
+      --card:#ffffff;
+      --border:#e5e7eb;
+      --green1:#16a34a;
+      --green2:#22c55e;
     }
 
-    /* Fundo + lâmina da marca */
     body{
-      background-color:#f3f4f6;
-      color:#111827;
+      background-color:var(--bg);
+      color:var(--text);
       position:relative;
       min-height:100vh;
     }
 
+    /* Marca d’água (imagem de fundo) */
     body::before{
       content:"";
       position:fixed;
       inset:0;
-      background-image:url("./logo-hara.png");
+
+      /* Caminho ABSOLUTO (mais seguro no GitHub Pages) */
+      background-image:url("https://marcelmuiz.github.io/portal-bi/logo-hara.png");
+
       background-repeat:no-repeat;
-      background-position:center 140px;
-      background-size:520px;
-      opacity:0.06;
+      background-position:center 170px;
+      background-size:640px;
+
+      opacity:0.07;          /* ajuste aqui: 0.04 a 0.10 */
       pointer-events:none;
       z-index:0;
     }
 
-    header, main, footer{
-      position:relative;
-      z-index:1;
-    }
+    header, main, footer{position:relative; z-index:1;}
 
     header{
-      padding:22px 18px;
+      padding:20px 18px 8px;
       max-width:1100px;
       margin:0 auto;
+    }
+
+    .topline{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+      flex-wrap:wrap;
+      margin-bottom:10px;
+    }
+
+    /* Logo visível no topo */
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:12px;
+    }
+
+    .brand-logo{
+      height:34px;        /* tamanho da logo no topo */
+      width:auto;
+      display:block;
+      filter: drop-shadow(0 2px 6px rgba(15,23,42,.10));
     }
 
     .tag{
       font-size:12px;
       letter-spacing:.12em;
       text-transform:uppercase;
-      color:#6b7280;
+      color:var(--muted);
     }
 
     h1{
@@ -59,9 +88,10 @@
 
     p{
       margin-top:8px;
-      color:#6b7280;
+      color:var(--muted);
       font-size:13px;
       line-height:1.4;
+      max-width:900px;
     }
 
     main{
@@ -78,8 +108,8 @@
     }
 
     .card{
-      background:#ffffff;
-      border:1px solid #e5e7eb;
+      background:var(--card);
+      border:1px solid var(--border);
       border-radius:16px;
       padding:16px;
       box-shadow:
@@ -92,13 +122,14 @@
     }
 
     .title{
-      font-weight:700;
+      font-weight:800;
       font-size:14px;
+      letter-spacing:.02em;
     }
 
     .desc{
       font-size:12px;
-      color:#6b7280;
+      color:var(--muted);
       line-height:1.4;
     }
 
@@ -115,9 +146,9 @@
       padding:10px 16px;
       border-radius:999px;
       font-size:12px;
-      font-weight:700;
+      font-weight:800;
       color:#ffffff;
-      background:linear-gradient(135deg,#16a34a,#22c55e);
+      background:linear-gradient(135deg,var(--green1),var(--green2));
       transition:transform .06s ease, filter .12s ease;
     }
 
@@ -136,21 +167,32 @@
 
     @media (max-width:1000px){
       .grid{grid-template-columns:repeat(2,1fr)}
+      body::before{background-size:560px;}
     }
 
     @media (max-width:640px){
       .grid{grid-template-columns:1fr}
       body::before{
-        background-position:center 180px;
+        background-position:center 220px;
         background-size:420px;
       }
+      .brand-logo{height:30px;}
     }
   </style>
 </head>
 
 <body>
   <header>
-    <div class="tag">Facilitador de links</div>
+    <div class="topline">
+      <div class="brand">
+        <!-- Logo no topo -->
+        <img class="brand-logo"
+             src="https://marcelmuiz.github.io/portal-bi/logo-hara.png"
+             alt="Hara" />
+        <div class="tag">Facilitador de links</div>
+      </div>
+    </div>
+
     <h1>Hub de Painéis (Power BI)</h1>
     <p>
       Esta página apenas organiza os acessos aos painéis.
@@ -161,12 +203,9 @@
   <main>
     <div class="grid">
 
-      <!-- PAINEL GRUPO HARA (VENDAS) -->
       <div class="card">
         <div class="title">PAINEL GRUPO HARA (VENDAS)</div>
-        <div class="desc">
-          Visão geral corporativa de vendas, faturamento, margens e desempenho comercial.
-        </div>
+        <div class="desc">Visão geral corporativa de vendas, faturamento, margens e desempenho comercial.</div>
         <div class="btnrow">
           <a class="btn" target="_blank" rel="noopener"
              href="https://app.powerbi.com/groups/me/reports/ad0d22ba-e701-4ede-a52b-39d33d10e19f?experience=power-bi">
@@ -175,12 +214,9 @@
         </div>
       </div>
 
-      <!-- PAINEL MARGEM AGRÍCOLA -->
       <div class="card">
         <div class="title">PAINEL MARGEM AGRÍCOLA</div>
-        <div class="desc">
-          Análise de margem agrícola, performance por produto, cortes e rentabilidade.
-        </div>
+        <div class="desc">Análise de margem agrícola, performance por produto, cortes e rentabilidade.</div>
         <div class="btnrow">
           <a class="btn" target="_blank" rel="noopener"
              href="https://app.powerbi.com/groups/me/reports/2f97e0b1-1813-4737-9518-570dc20f0e5e/c6355af6a11d49695201?experience=power-bi">
@@ -189,12 +225,9 @@
         </div>
       </div>
 
-      <!-- PAINEL VETERINÁRIA MSD -->
       <div class="card">
         <div class="title">PAINEL VETERINÁRIA MSD</div>
-        <div class="desc">
-          Resultados comerciais, indicadores e acompanhamento da vertical Veterinária (MSD).
-        </div>
+        <div class="desc">Resultados comerciais, indicadores e acompanhamento da vertical Veterinária (MSD).</div>
         <div class="btnrow">
           <a class="btn" target="_blank" rel="noopener"
              href="https://app.powerbi.com/groups/me/reports/c6c8d876-12f6-41b4-ae8b-14bc7fa56ccf/3a45406eb71603d49712?experience=power-bi">
