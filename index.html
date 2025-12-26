@@ -21,7 +21,7 @@
       --green:#16a34a;
     }
 
-    /* FUNDO CLEAN */
+    /* FUNDO CLEAN COM IMAGEM AGRÍCOLA */
     body{
       color:var(--text);
       min-height:100vh;
@@ -38,7 +38,7 @@
           rgba(255,255,255,0.94),
           rgba(255,255,255,0.94)
         ),
-        url("bg-soja.jpg");
+        url("bg-soja.png"); /* ← CORRIGIDO AQUI */
       background-size:cover;
       background-position:center;
       z-index:0;
@@ -154,7 +154,7 @@
 
 <header>
   <div class="brand">
-    <img class="brand-logo" src="logo-hara.png" alt="Hara">
+    <img class="brand-logo" src="logo-hara.png" alt="Agro Hara">
   </div>
   <h1>Hub de Painéis Corporativos</h1>
   <p>Indicadores estratégicos para apoio à tomada de decisão no agronegócio.</p>
@@ -163,7 +163,6 @@
 <main>
   <div class="grid">
 
-    <!-- VENDAS -->
     <div class="card">
       <div class="title">PAINEL GRUPO HARA (VENDAS)</div>
       <div class="desc">Vendas, faturamento, margens e desempenho comercial.</div>
@@ -175,7 +174,6 @@
       </div>
     </div>
 
-    <!-- MARGEM -->
     <div class="card">
       <div class="title">PAINEL MARGEM AGRÍCOLA</div>
       <div class="desc">Margem agrícola, performance por produto e rentabilidade.</div>
@@ -187,7 +185,6 @@
       </div>
     </div>
 
-    <!-- MSD -->
     <div class="card">
       <div class="title">PAINEL VETERINÁRIA MSD</div>
       <div class="desc">Indicadores comerciais e acompanhamento da vertical MSD.</div>
@@ -199,7 +196,6 @@
       </div>
     </div>
 
-    <!-- ELANCO -->
     <div class="card">
       <div class="title">PAINEL VETERINÁRIA ELANCO</div>
       <div class="desc">Indicadores comerciais e acompanhamento da vertical Elanco.</div>
@@ -211,7 +207,6 @@
       </div>
     </div>
 
-    <!-- FORNECEDORES -->
     <div class="card">
       <div class="title">PAINEL FORNECEDORES</div>
       <div class="desc">Compras, negociações e análise de fornecedores.</div>
@@ -223,7 +218,6 @@
       </div>
     </div>
 
-    <!-- INADIMPLÊNCIA -->
     <div class="card">
       <div class="title">PAINEL INADIMPLÊNCIA</div>
       <div class="desc">Aging, risco de crédito e controle de inadimplência.</div>
@@ -235,7 +229,6 @@
       </div>
     </div>
 
-    <!-- LOGÍSTICA -->
     <div class="card">
       <div class="title">PAINEL LOGÍSTICA</div>
       <div class="desc">Fretes, prazos, eficiência e performance logística.</div>
@@ -247,7 +240,6 @@
       </div>
     </div>
 
-    <!-- BARTER -->
     <div class="card">
       <div class="title">PAINEL BARTER</div>
       <div class="desc">Operações barter, contratos e resultados financeiros.</div>
