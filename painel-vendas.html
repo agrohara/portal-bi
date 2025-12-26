@@ -12,7 +12,6 @@
     background:#f9fafb;
   }
 
-  /* 🔘 CONTAINER DOS BOTÕES */
   .panel-actions{
     position:fixed;
     top:10px;
@@ -23,7 +22,6 @@
     z-index:10000;
   }
 
-  /* 🎛️ BOTÕES */
   .btn{
     padding:8px 14px;
     border:none;
@@ -33,11 +31,10 @@
     font-weight:600;
     cursor:pointer;
     box-shadow:0 2px 6px rgba(0,0,0,0.18);
-    transition:.15s;
+    transition:0.15s;
   }
   .btn:hover{ background:#15803d; }
 
-  /* 📊 IFRAME DO POWER BI */
   iframe{
     width:100%;
     height:100vh;
@@ -48,20 +45,15 @@
 
 <body>
 
-<!-- 🚀 BOTÕES DE AÇÃO -->
 <div class="panel-actions">
   <button class="btn" onclick="window.location.href='index.html'">⬅️ Voltar ao Portal</button>
   <button class="btn" onclick="document.querySelector('iframe').requestFullscreen();">🖥️ Tela Cheia</button>
 </div>
 
-<!-- 📌 IFRAME COM NOVO LINK -->
 <iframe 
-  src="https://app.powerbi.com/groups/me/reports/ad0d22ba-e701-4ede-a52b-39d33d10e19f/6ba47188795ce6267086?experience=power-bi&autoAuth=true&filterPaneEnabled=false&navContentPaneEnabled=true"
+  src="https://app.powerbi.com/reportEmbed?reportId=ad0d22ba-e701-4ede-a52b-39d33d10e19f&autoAuth=true&ctid=044e0a4a-8936-4daa-becf-e0597208071c&filterPaneEnabled=false&navContentPaneEnabled=true"
   allowFullScreen="true">
 </iframe>
 
 </body>
 </html>
-
-
-
